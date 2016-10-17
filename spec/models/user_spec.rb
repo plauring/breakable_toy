@@ -11,7 +11,7 @@ describe User do
     expect(user1).to be_valid
   end
 
-  it 'is not valid with non-valid username' do
+  it 'is not valid with non-valid attributes' do
     expect(user2).to_not be_valid
     expect(user3).to_not be_valid
     expect(user4).to_not be_valid
