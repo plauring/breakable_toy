@@ -7,15 +7,28 @@ describe User do
   user4 = FactoryGirl.build(:user, password: '')
   user5 = FactoryGirl.build(:user, first_name: '')
   user6 = FactoryGirl.build(:user, last_name: '')
+
   it 'is valid with valid attributes' do
     expect(user1).to be_valid
   end
 
-  it 'is not valid with non-valid attributes' do
+  it 'is not valid without a username' do
     expect(user2).to_not be_valid
+  end
+
+  it 'is not valid without an email' do
     expect(user3).to_not be_valid
+  end
+
+  it 'is not valid without a password' do
     expect(user4).to_not be_valid
+  end
+
+  it 'is not valid without a first name' do
     expect(user5).to_not be_valid
+  end
+
+  it 'is not valid without a last name' do
     expect(user6).to_not be_valid
   end
 
