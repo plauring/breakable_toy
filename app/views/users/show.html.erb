@@ -1,0 +1,10 @@
+<h1> <%= @user.first_name %> <%= @user.last_name %>'s Profile </h1>
+
+  <h6>Your info</h6>
+<ul>
+  <li><%= @user.username %></li>
+  <li><%= @user.email %></li>
+  <li>Member since: <%= @user.created_at %></li>
+</ul>
+
+<%= link_to 'Edit your profile', edit_user_registration_path %>
