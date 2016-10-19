@@ -63,9 +63,6 @@ feature 'as an authenticated user I can create an event' do
     visit root_path
     logout(:user)
     click_link 'Create new event'
-    expect(page).to have_content("Sign in or Sign up to create an event")
-
+    expect(page).to have_content('Sign in or Sign up to create an event')
   end
-
-
 end

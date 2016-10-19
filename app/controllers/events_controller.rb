@@ -21,10 +21,10 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      flash[:notice] = "Event added successfully"
+      flash[:notice] = 'Event added successfully'
       redirect_to event_path(@event.id)
     else
-      flash[:notice] = @event.errors.full_messages.join(", ")
+      flash[:notice] = @event.errors.full_messages.join(', ')
       render 'new'
     end
   end
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
 
   def authorize_user
     if !user_signed_in?
-      raise ActionController::RoutingError.new("Where ya goin?!@")
+      raise ActionController::RoutingError.new('Where ya goin?!@')
     end
   end
 end
