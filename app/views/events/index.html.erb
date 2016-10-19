@@ -1,0 +1,12 @@
+<h1>So many events</h1>
+
+<ul>
+  <% @events.each do |event| %>
+  <li><%= event.name %></li>
+  <% end %>
+</ul>
+
+
+<div>
+  <%= link_to 'Create new event', new_event_path %>
+</div>
