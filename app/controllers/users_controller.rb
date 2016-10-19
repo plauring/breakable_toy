@@ -4,5 +4,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @from_time = Time.now
   end
 end
