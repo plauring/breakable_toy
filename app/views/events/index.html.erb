@@ -2,7 +2,7 @@
 
 <ul>
   <% @events.each do |event| %>
-  <li><%= event.name %></li>
+    <li><%= link_to event.name, event_path(event.id) %></li>
   <% end %>
 </ul>
 
