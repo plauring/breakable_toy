@@ -9,6 +9,7 @@ gem 'jquery-rails'
 gem 'listen'
 gem 'devise'
 gem 'httparty'
+gem 'seed_dump'
 
 group :development, :test do
   gem 'capybara'
