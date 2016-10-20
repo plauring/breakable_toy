@@ -6,3 +6,22 @@
   <li> <%= @event.address %> </li>
   <li> <%= @event.city %>, <%= @event.state %> <%= @event.zip %> </li>
 </ul>
+
+<div>
+<%= form_for [@event, @membership] do |f| %>
+  <%= f.hidden_field :event_id %>
+  <%= f.hidden_field :user_id %>
+  <%= f.submit 'Attend' %>
+</div>
+<% end %>
+
+<p>
+  <%= @memberships.length %> fans are attending!
+</p>
+<ul>
+  <% @memberships.each do |membership| %>
+    <li>
+      <%= membership.user.username %>
+    </li>
+    <% end %>
+</ul>
