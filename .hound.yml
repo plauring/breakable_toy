@@ -1,3 +1,5 @@
+
+
 AllCops:
   Exclude:
     - db/schema.rb
@@ -276,6 +278,3 @@ Style/UnneededPercentQ:
 
 Metrics/AbcSize:
   Enabled: false
-
-ruby:
-config_file: .rubocop.yml
