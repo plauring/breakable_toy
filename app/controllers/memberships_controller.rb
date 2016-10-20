@@ -37,8 +37,6 @@ class MembershipsController < ApplicationController
       flash[:notice] = @membership.errors.full_messages.join(', ')
       render 'events/show'
     end
-
-
   end
 
   private
