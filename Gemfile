@@ -8,6 +8,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'listen'
 gem 'devise'
+gem 'httparty'
 
 group :development, :test do
   gem 'capybara'
