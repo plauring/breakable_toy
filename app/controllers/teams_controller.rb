@@ -1,7 +1,7 @@
 class TeamsController < ApplicationController
 
   def create
-    url = 'http://api.sportradar.us/ncaafb-t1/teams/FBS/hierarchy.json?api_key=z9c7ce23mnr6t5nq63hn29ak'
+    url = 'http://api.sportradar.us/ncaafb-t1/teams/FBS/hierarchy.json?api_key='
     response = HTTParty.get(url)
     conf = ''
     team_name = ''
@@ -26,5 +26,5 @@ class TeamsController < ApplicationController
       end
     end
   end
-  
+
 end

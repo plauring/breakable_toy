@@ -9,4 +9,6 @@ Rails.application.routes.draw do
     resources :memberships, only: [:index, :new, :create]
   end
 
+  resources :teams, only: [:create]
+
 end
