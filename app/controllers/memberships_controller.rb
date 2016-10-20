@@ -46,8 +46,8 @@ class MembershipsController < ApplicationController
   end
 
   def authorize_user
-    if !user_signed_in?
-      raise ActionController::RoutingError.new("Where ya goin?!@")
+    unless user_signed_in?
+      raise ActionController::RoutingError.new('Where ya goin?!@')
     end
   end
 end
