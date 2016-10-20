@@ -1,0 +1,11 @@
+AllCops:
+  Include:
+  - "**/Rakefile"
+  - "**/config.ru"
+  - "**/*.rake"
+  - "**/Gemfile"
+  Exclude:
+  - "vendor/**/*"
+  - "db/**/*"
+Rails:
+  Enabled: true
