@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
     conf = ''
     team_name = ''
     nickname = ''
+    key = ''
 
     response['conferences'].each do |conferences|
       conf = conferences['id']
@@ -13,14 +14,16 @@ class TeamsController < ApplicationController
         conferences['teams'].each do |team|
           team_name = team['name']
           nickname = team['market']
-          Team.create(name: team_name, nickname: nickname, conference: conf, league: 'NCAAF')
+          key = team['id']
+          Team.create(name: team_name, nickname: nickname, key: key, conference: conf, league: 'NCAAF')
         end
       else
         conferences['subdivisions'].each do |subdivision|
           subdivision['teams'].each do |team|
             team_name = team['name']
             nickname = team['market']
-            Team.create(name: team_name, nickname: nickname, conference: conf, league: 'NCAAF')
+            key = team['id']
+            Team.create(name: team_name, nickname: nickname, key: key, conference: conf, league: 'NCAAF')
           end
         end
       end
