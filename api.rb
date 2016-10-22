@@ -2,7 +2,7 @@ require 'pry'
 require 'HTTParty'
 require 'json'
 
-url = 'http://api.sportradar.us/ncaafb-t1/2016/REG/schedule.json?api_key=z9c7ce23mnr6t5nq63hn29ak'
+url = "http://api.sportradar.us/ncaafb-t1/2016/REG/schedule.json?api_key=#{ENV['NCAAF_TOKEN']}"
 response = HTTParty.get(url)
 # binding.pry
 week_number = ''

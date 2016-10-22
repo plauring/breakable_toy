@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   has_many :memberships
   has_many :events, through: :memberships
+  
+  has_many :favorite_teams
+  has_many :teams, through: :favorite_teams
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
