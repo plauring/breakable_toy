@@ -1,9 +1,0 @@
-<h1>Add your favorite teams</h1>
-
-<% @teams.each do |team| %>
-  <div><%= team.name %></div>
-
-  <div>
-    <%= button_to 'Add Team', { controller: 'favorite_teams', action: 'create' }, method: :post, params: { user_id: @user.id, team_id: team.id } %>
-  </div>
-<% end %>

@@ -36,3 +36,14 @@ class MembershipsController < ApplicationController
 
   end
 end
+
+<%= form_for [@user, @favorite] do |f| %>
+  <div class="row">
+      <%= f.label "ACC" %>
+      <%= f.select :team_id, options_for_select(@acc) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Add Favorites" %>
+  </div>
+<% end %>

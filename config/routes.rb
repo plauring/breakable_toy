@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:index, :show] do
-    resources :favorite_teams, only: [:index, :new, :create]
+    resources :favorites, only: [:index, :new, :create]
   end
 
   resources :events, only: [:new, :index, :new, :create, :show] do

@@ -4,8 +4,9 @@ class UsersController < ApplicationController
 
   def show
     @teams = Team.all
-    @favorite = FavoriteTeams.new
+    @favorite = Favorite.new
     @user = User.find(params[:id])
-    @from_time = Time.now
+    @favorites = @user.teams
+    @conference_collection = Conference::CONFERENCES
   end
 end
