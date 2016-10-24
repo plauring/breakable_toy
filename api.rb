@@ -2,17 +2,13 @@ require 'pry'
 require 'HTTParty'
 require 'json'
 
-url = "http://api.sportradar.us/ncaafb-t1/2016/REG/schedule.json?api_key=#{ENV['NCAAF_TOKEN']}"
+url = "http://api.sportradar.us/ncaafb-t1/2016/REG/schedule.json?api_key="
 response = HTTParty.get(url)
-# binding.pry
 week_number = ''
 scheduled = ''
 home = ''
 away = ''
 network = ''
-# data = File.read("./teams.json")
-# response = JSON.parse(data)
-# binding.pry
 
 response['weeks'].each do |week|
   if week['number'].to_i > 8 && week['number'].to_i < 10

@@ -1,16 +1,12 @@
 require 'rails_helper'
 
 describe Team do
-  conference1 = Conference.create(name: 'Conference1', id: 1)
-  conference2 = Conference.create(name: 'Conference2', id: 2)
-  conference3 = Conference.create(name: 'Conference3', id: 3)
-  conference4 = Conference.create(name: 'Conference4', id: 4)
-  conference5 = Conference.create(name: 'Conference5', id: 5)
-  team1 = FactoryGirl.create(:team)
-  team2 = FactoryGirl.build(:team, nickname: '')
+  conference1 = FactoryGirl.create(:conference)
+  team1 = FactoryGirl.create(:team, conference: conference1)
+  team2 = FactoryGirl.build(:team, conference: conference1, nickname: '')
   team3 = FactoryGirl.build(:team, conference_id: 'abc')
-  team4 = FactoryGirl.build(:team, league: '')
-  team5 = FactoryGirl.build(:team, key: '')
+  team4 = FactoryGirl.build(:team, league: '', conference: conference1)
+  team5 = FactoryGirl.build(:team, key: '', conference: conference1)
 
   it 'is valid with valid attributes' do
     expect(team1).to be_valid
