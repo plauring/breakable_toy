@@ -17,8 +17,8 @@ function addTeam() {
     });
 
   request.done(function(data) {
-      var newTeam = data[data.length -1];
-      var teamName = `${newTeam['nickname']} ${newTeam['name']}`;
+      var newTeam = data;
+      var teamName = `${newTeam['name']} ${newTeam['nickname']}`;
       var item = document.createElement('li');
       item.innerHTML = teamName;
       document.getElementById('favorites').appendChild(item);

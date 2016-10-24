@@ -16,8 +16,9 @@ class FavoritesController < ApplicationController
     @user = current_user
     @favorites = @user.teams
     @favorite = Favorite.create(user_id: @user.id, team_id: params[:team_id])
+    @new_fav_team = @favorite.team
     if @favorite.save
-      render json: @favorites.to_json
+      render json: @new_fav_team.to_json
     end
   end
 

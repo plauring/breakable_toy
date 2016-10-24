@@ -13,7 +13,7 @@
 
 <h1>Add your favorite teams</h1>
 
-<% @conference_collection.each do |conference| %>
+<% @conferences.each do |conference| %>
 <button id="<%=conference.name %>" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
 <div class="<%=conference.name %>" style="display: none;">
   <% conference.teams.each do |team| %>
@@ -29,7 +29,7 @@
 <div id="favorites">
   <% unless @favorites.nil? %>
     <% @favorites.each do |fav| %>
-      <li><%= fav.nickname %> <%= fav.name %></li>
+      <li><%= fav.name %> <%= fav.nickname %></li>
     <% end %>
   <% end %>
 </div>
