@@ -7,4 +7,29 @@
   <li>Member since: <%= @user.created_at %></li>
 </ul>
 
+
+<%= link_to 'Add Favorite Teams', new_user_favorite_path(@user) %>
 <%= link_to 'Edit your profile', edit_user_registration_path %>
+
+<h1>Add your favorite teams</h1>
+
+<% @conferences.each do |conference| %>
+<button id="<%=conference.name %>" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
+<div class="<%=conference.name %>" style="display: none;">
+  <% conference.teams.each do |team| %>
+    <%= team.nickname %>
+    <button type="button" name="button" onClick="addTeam()" id="<%= team.id %>" data-team="<%= team.id %>" >Add</button>
+  <% end %>
+</div>
+
+<% end %>
+
+<h3>Your Favorites</h3>
+
+<div id="favorites">
+  <% unless @favorites.nil? %>
+    <% @favorites.each do |fav| %>
+      <li><%= fav.name %> <%= fav.nickname %></li>
+    <% end %>
+  <% end %>
+</div>

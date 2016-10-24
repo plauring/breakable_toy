@@ -1,0 +1,15 @@
+<h1>Add your favorite teams</h1>
+
+<% @conference_collection.each do |conference| %>
+  <%= conference.name %>
+<button id="<%=conference.name %>" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
+<div class="<%=conference.name %>" style="display: none;">
+  <% conference.teams.each do |team| %>
+    <%= team.nickname %>
+    <button type="button" name="button" onClick="addTeam()">
+      <%= button_to 'Add Team', { controller: 'favorites', action: 'create' }, method: :post, params: { user_id: @user.id, team_id: team.id } %>
+    </button>
+  <% end %>
+</div>
+
+<% end %>
