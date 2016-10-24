@@ -6,4 +6,18 @@ class Game < ActiveRecord::Base
   validates :week, presence: true
   validates :scheduled, presence: true
 
+  def home_team
+    @home_team = Team.where('id = ?', home_team_id )
+    @home_team[0]
+  end
+
+  def away_team
+    @away_team = Team.where('id = ?', away_team_id )
+    @away_team[0]
+  end
+
+  def format_time(game)
+    game.scheduled.in_time_zone('Eastern Time (US & Canada)').strftime('%a %b %d %I:%M %p %Z')
+  end
+
 end

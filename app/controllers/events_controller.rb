@@ -4,6 +4,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @user = current_user
+    @favorite_teams = @user.teams
   end
 
   def show

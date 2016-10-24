@@ -14,4 +14,8 @@ class Team < ActiveRecord::Base
     Game.where('home_team_id = ? or away_team_id = ?', id, id)
   end
 
+  def full_name
+    "#{name} #{nickname}"
+  end
+
 end
