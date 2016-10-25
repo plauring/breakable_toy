@@ -1,2 +1,17 @@
-// @import "*";
+@import "foundation_and_overrides";
+/* Add imports of custom sass/scss files here */
 
+#sign-in-page {
+  background-image: url("http://images.agoramedia.com/everydayhealth/gcms/benefits-and-risks-of-sports-fandom-01-pg-full.jpg?width=623");
+  background-size: cover;
+  background-position: center, center;
+  background-repeat: no-repeat;
+}
+
+.new_user {
+  margin: 0px 100px 50px 100px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}

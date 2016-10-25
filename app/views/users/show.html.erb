@@ -4,7 +4,7 @@
 <ul>
   <li><%= @user.username %></li>
   <li><%= @user.email %></li>
-  <li>Member since: <%= @user.created_at %></li>
+  <li>Member since: <%= @user.created_at.to_time.strftime('%a %b %d %I:%M %p %Z') %></li>
 </ul>
 
 

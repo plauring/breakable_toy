@@ -1,9 +1,11 @@
 class EventsController < ApplicationController
-  before_action :authorize_user, except: [:index, :new]
+  before_action :authorize_user
 
   def index
     @events = Event.all
-    @user = current_user
+    if user_signed_in?
+      @user = current_user
+    end
     @favorite_teams = @user.teams
   end
 
@@ -38,12 +40,12 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :location, :address, :city, :state, :zip)
+    params.require(:event).permit(:name, :description, :location, :address, :city, :state, :zip, :game_id)
   end
 
   def authorize_user
     if !user_signed_in?
-      raise ActionController::RoutingError.new("Where ya goin?!@")
+      redirect_to new_user_session_path
     end
   end
 end

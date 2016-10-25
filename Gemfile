@@ -10,6 +10,7 @@ gem 'listen'
 gem 'devise'
 gem 'httparty'
 gem 'seed_dump'
+gem 'foundation-rails'
 
 group :development, :test do
   gem 'capybara'

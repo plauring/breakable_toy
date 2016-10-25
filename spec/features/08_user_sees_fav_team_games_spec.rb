@@ -8,7 +8,7 @@ feature "user sees favorite team's games on the events index page" do
     team2 = FactoryGirl.create(:team, conference: conference)
     favorite1 = Favorite.create(user: user, team: team1)
     favorite2 = Favorite.create(user: user, team: team2)
-    game1 = FactoryGirl.create(:game, home_team_id: team1.id, away_team_id: team2.id)
+    game1 = Game.create(week: 11, scheduled: "2016-10-29T19:30:00+00:00", network: 'ABC', home_team_id: team1.id, away_team_id: team2.id)
     login_as(user)
     visit root_path
 
@@ -23,7 +23,7 @@ feature "user sees favorite team's games on the events index page" do
     conference = FactoryGirl.create(:conference)
     team1 = FactoryGirl.create(:team, conference: conference)
     team2 = FactoryGirl.create(:team, conference: conference)
-    game1 = FactoryGirl.create(:game, home_team_id: team1.id, away_team_id: team2.id)
+    game1 = Game.create(week: 11, scheduled: "2016-10-29T19:30:00+00:00", network: 'ABC', home_team_id: team1.id, away_team_id: team2.id)
     login_as(user)
     visit root_path
 
