@@ -1,9 +1,13 @@
 class EventsController < ApplicationController
-  before_action :authorize_user, except: [:index, :new]
+  before_action :authorize_user
 
   def index
     @events = Event.all
-    @user = current_user
+    if user_signed_in?
+      @user = current_user
+    end
+    @favorite_teams = @user.teams
+
   end
 
   def show
@@ -19,14 +23,17 @@ class EventsController < ApplicationController
       redirect_to root_path
     else
       @event = Event.new
+      @game = Game.find(params[:game_id])
     end
   end
 
   def create
+    @game = Game.find(params[:game_id])
     @event = Event.new(event_params)
+    # binding.pry
     if @event.save
       flash[:notice] = "Event added successfully"
-      redirect_to event_path(@event.id)
+      redirect_to game_event_path(@game.id, @event.id)
     else
       flash[:notice] = @event.errors.full_messages.join(", ")
       render 'new'
@@ -37,12 +44,12 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :description, :location, :address, :city, :state, :zip)
+    params.require(:event).permit(:name, :description, :location, :address, :city, :state, :zip, :game_id)
   end
 
   def authorize_user
     if !user_signed_in?
-      raise ActionController::RoutingError.new("Where ya goin?!@")
+      redirect_to new_user_session_path
     end
   end
 end

@@ -12,6 +12,7 @@ class MembershipsController < ApplicationController
       redirect_to root_path
     else
       @event = Event.find(params[:event])
+      @game = @event.game
       @membership = Membership.new
       @user = current_user
     end
@@ -21,18 +22,19 @@ class MembershipsController < ApplicationController
     @user = current_user
     params[:user_id] = @user.id
     @event = Event.find(params[:event_id])
+    @game = @event.game
     @memberships = @event.memberships
     @memberships.each do |membership|
       if membership.user_id == @user.id
         flash[:notice] = 'You are already signed up for this event'
-        redirect_to event_path(@event)
+        redirect_to game_event_path(@game, @event)
         return
       end
     end
     @membership = Membership.new(membership_params)
     if @membership.save
       flash[:notice] = 'You have succesfully joined the event'
-      redirect_to event_path(@event)
+      redirect_to game_event_path(@game, @event)
     else
       flash[:notice] = @membership.errors.full_messages.join(', ')
       render 'events/show'

@@ -2,7 +2,6 @@ class GamesController < ApplicationController
   def create
     url = "http://api.sportradar.us/ncaafb-t1/2016/REG/schedule.json?api_key=#{ENV['NCAAF_TOKEN']}"
     response = HTTParty.get(url)
-    # binding.pry
     week_number = ''
     scheduled = ''
     home = ''

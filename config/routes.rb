@@ -8,11 +8,13 @@ Rails.application.routes.draw do
     resources :favorites, only: [:index, :new, :create]
   end
 
-  resources :events, only: [:new, :index, :new, :create, :show] do
+  resources :events, only: [:index] do
     resources :memberships, only: [:index, :new, :create]
   end
 
   resources :teams, only: [:index, :create]
-  resources :games, only: [:index, :create]
 
+  resources :games, only: [:index, :create] do
+    resources :events, only: [:new, :create, :show]
+  end
 end

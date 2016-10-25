@@ -3,11 +3,18 @@ require 'rails_helper'
 feature 'as an authenticated user I can create an event' do
   before do
     user1 = FactoryGirl.create(:user)
+    # game1 = FactoryGirl.create(:game)
+
     login_as(user1, scope: :user)
-    visit new_event_path
   end
 
   scenario 'The new event page shows the correct form fields' do
+    conference1 = FactoryGirl.create(:conference)
+    team1 = Team.create(name: 'Test', nickname: 'Turtles', conference: conference1, league: 'NCAAF', key: 'TTU')
+    team2 = Team.create(name: 'Test2', nickname: 'Turtles2', conference: conference1, league: 'NCAAF', key: 'TTT')
+    game1 = Game.create(week: 10, scheduled: 'noon', network: 'pbs', home_team_id: team1.id, away_team_id: team2.id)
+    visit new_game_event_path(game1.id)
+
     expect(page).to have_content('Name')
     expect(page).to have_content('Description')
     expect(page).to have_content('Location')
@@ -18,6 +25,12 @@ feature 'as an authenticated user I can create an event' do
   end
 
   scenario 'User fills out the form correctly' do
+    conference1 = FactoryGirl.create(:conference)
+    team1 = Team.create(name: 'Test', nickname: 'Turtles', conference: conference1, league: 'NCAAF', key: 'TTU')
+    team2 = Team.create(name: 'Test2', nickname: 'Turtles2', conference: conference1, league: 'NCAAF', key: 'TTT')
+    game1 = Game.create(week: 10, scheduled: 'noon', network: 'pbs', home_team_id: team1.id, away_team_id: team2.id)
+    visit new_game_event_path(game1.id)
+
     fill_in('Name', with: 'Huskers Football')
     fill_in('Description', with: 'join other nebraska fans to watch them play wisconsin, yay')
     fill_in('Location', with: 'The Greatest Bar')
@@ -30,6 +43,13 @@ feature 'as an authenticated user I can create an event' do
   end
 
   scenario 'User sees showpage after creating event' do
+    conference1 = FactoryGirl.create(:conference)
+    team1 = Team.create(name: 'Test', nickname: 'Turtles', conference: conference1, league: 'NCAAF', key: 'TTU')
+    team2 = Team.create(name: 'Test2', nickname: 'Turtles2', conference: conference1, league: 'NCAAF', key: 'TTT')
+    game1 = Game.create(week: 10, scheduled: 'noon', network: 'pbs', home_team_id: team1.id, away_team_id: team2.id)
+    visit new_game_event_path(game1.id)
+
+
     fill_in('Name', with: 'Huskers Football')
     fill_in('Description', with: 'join other nebraska fans to watch them play wisconsin, yay')
     fill_in('Location', with: 'The Greatest Bar')
@@ -49,6 +69,12 @@ feature 'as an authenticated user I can create an event' do
   end
 
   scenario 'The user fills out the form incorrectly' do
+    conference1 = FactoryGirl.create(:conference)
+    team1 = Team.create(name: 'Test', nickname: 'Turtles', conference: conference1, league: 'NCAAF', key: 'TTU')
+    team2 = Team.create(name: 'Test2', nickname: 'Turtles2', conference: conference1, league: 'NCAAF', key: 'TTT')
+    game1 = Game.create(week: 10, scheduled: 'noon', network: 'pbs', home_team_id: team1.id, away_team_id: team2.id)
+    visit new_game_event_path(game1.id)
+
       click_button('Create it!')
       expect(page).to have_content("Name can't be blank")
       expect(page).to have_content("Description can't be blank")
@@ -58,14 +84,4 @@ feature 'as an authenticated user I can create an event' do
       expect(page).to have_content("State can't be blank")
       expect(page).to have_content("Zip can't be blank")
   end
-
-  scenario 'unauthorized user cannot create event' do
-    visit root_path
-    logout(:user)
-    click_link 'Create new event'
-    expect(page).to have_content("Sign in or Sign up to create an event")
-
-  end
-
-
 end
