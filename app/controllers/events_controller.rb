@@ -7,7 +7,14 @@ class EventsController < ApplicationController
       @user = current_user
     end
     @favorite_teams = @user.teams
-
+    if params[:search]
+      @searched_events = Event.search(params[:search])
+      @searched_events.each do |event|
+        @game = event.game
+      end
+    else
+      @searched_events = nil
+    end
   end
 
   def show

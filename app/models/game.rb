@@ -6,14 +6,8 @@ class Game < ActiveRecord::Base
   validates :week, presence: true
   validates :scheduled, presence: true
 
-  def home_team
-    @home_team = Team.where('id = ?', home_team_id )
-    @home_team[0]
-  end
-
-  def away_team
-    @away_team = Team.where('id = ?', away_team_id )
-    @away_team[0]
+  def matchup(game)
+    "#{game.away_team.name} #{game.away_team.nickname} @ #{game.home_team.name} #{game.home_team.nickname} "
   end
 
   def format_time(game)

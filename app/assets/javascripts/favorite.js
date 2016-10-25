@@ -1,5 +1,5 @@
 function showTeams () {
-    var id = event.currentTarget.id
+    var id = event.currentTarget.id;
     $(`.${id}`).toggle();
   };
 
@@ -24,3 +24,10 @@ function addTeam() {
       document.getElementById('favorites').appendChild(item);
   });
 };
+
+function showEvents () {
+    var id = event.currentTarget.id;
+    debugger;
+    $(`.${id}`).toggle();
+    }
+  };
