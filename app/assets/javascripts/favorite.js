@@ -27,7 +27,6 @@ function addTeam() {
 
 function showEvents () {
     var id = event.currentTarget.id;
-    debugger;
     $(`.${id}`).toggle();
     }
   };
