@@ -1,3 +1,23 @@
+<h3>Find An Event</h3>
+
+<%= form_tag(events_path, method: :get) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search by name, city, or description" %>
+    <%= submit_tag "Search" %>
+    <%= link_to 'Clear Search', events_path %>
+
+<% end %>
+
+<% unless @searched_events.nil? %>
+  <% @searched_events.each do |event| %>
+    <h3><%= event.name %></h3>
+    <ul>
+      <li><%= event.description %></li>
+      <li><%= event.location %></li>
+      <li><%= event.full_address %></li>
+    </ul>
+    <div ><%= link_to 'See Details', game_event_path(@game.id, event.id)  %></div>
+  <% end %>
+<% end %>
 
 <h4>Your Favorites Games</h4>
   <div>
@@ -8,26 +28,18 @@
           <p><%= game.away_team.full_name %> @ <%= game.home_team.full_name %></p>
           <p>Time: <%= game.format_time(game) %></p>
           <p>Channel: <%= game.network %></p>
-          <div>
-            <%= link_to 'Create new event', new_game_event_path(game.id) %>
-          </div>
-          <div class="game-event">
+          <div><%= link_to 'Create new event', new_game_event_path(game.id) %></div>
+          <button id="<%=game.id%>" type= "button" name="button" onClick="showEvents()">See Events</button>
+
+          <div class="<%=game.id%>" style="display: none;" >
             <% game.events.each do |event| %>
               <h3><%= event.name %></h3>
               <ul>
-                <li>
-                  <%= event.description %>
-                </li>
-                <li>
-                  <%= event.location %>
-                </li>
-                <li>
-                  <%= event.full_address %>
-                </li>
+                <li><%= event.description %></li>
+                <li><%= event.location %></li>
+                <li><%= event.full_address %></li>
               </ul>
-              <div >
-                <%= link_to 'See Details', game_event_path(game.id, event.id)  %>
-              </div>
+              <div ><%= link_to 'See Details', game_event_path(game.id, event.id)  %></div>
             <% end %>
           </div>
         <% end %>

@@ -17,7 +17,7 @@
 <button id="<%=conference.name %>" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
 <div class="<%=conference.name %>" style="display: none;">
   <% conference.teams.each do |team| %>
-    <%= team.nickname %>
+    <%= team.full_name %>
     <button type="button" name="button" onClick="addTeam()" id="<%= team.id %>" data-team="<%= team.id %>" >Add</button>
   <% end %>
 </div>

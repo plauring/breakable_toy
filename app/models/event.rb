@@ -14,4 +14,10 @@ class Event < ActiveRecord::Base
   def full_address
     "#{address} #{city}, #{state} #{zip}"
   end
+
+  def self.search(search)
+    if search
+      where("name ILIKE ? OR city ILIKE ? OR description ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%")
+    end
+  end
 end
