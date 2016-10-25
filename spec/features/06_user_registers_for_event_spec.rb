@@ -9,7 +9,7 @@ feature 'Authorized users can register for an event' do
     game1 = Game.create(week: 10, scheduled: 'noon', network: 'pbs', home_team_id: team1.id, away_team_id: team2.id)
     login_as(user1)
     event1 = FactoryGirl.create(:event, game: game1)
-    visit event_path(event1.id)
+    visit game_event_path(game1.id, event1.id)
     click_button 'Attend'
     expect(page).to have_content(user1.username)
   end
@@ -24,7 +24,7 @@ feature 'Authorized users can register for an event' do
     game1 = Game.create(week: 10, scheduled: 'noon', network: 'pbs', home_team_id: team1.id, away_team_id: team2.id)
     event2 = FactoryGirl.create(:event, game: game1)
     login_as(user1)
-    visit event_path(event2.id)
+    visit game_event_path(game1.id, event2.id)
     click_button 'Attend'
     logout(:user)
     login_as(user2)

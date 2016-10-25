@@ -7,6 +7,7 @@ class EventsController < ApplicationController
       @user = current_user
     end
     @favorite_teams = @user.teams
+
   end
 
   def show
@@ -22,14 +23,17 @@ class EventsController < ApplicationController
       redirect_to root_path
     else
       @event = Event.new
+      @game = Game.find(params[:game_id])
     end
   end
 
   def create
+    @game = Game.find(params[:game_id])
     @event = Event.new(event_params)
+    # binding.pry
     if @event.save
       flash[:notice] = "Event added successfully"
-      redirect_to event_path(@event.id)
+      redirect_to game_event_path(@game.id, @event.id)
     else
       flash[:notice] = @event.errors.full_messages.join(", ")
       render 'new'
