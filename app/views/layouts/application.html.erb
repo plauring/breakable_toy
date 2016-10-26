@@ -14,9 +14,9 @@
   <body>
     <div class="contain-to-grid">
       <nav class="top-bar" data-topbar role="navigation">
-        <ul class="title-area">
-          <li class="name">Away Games</li>
-        </ul>
+        <div class="title-area">
+          <h2 class="name">Away Games</h2>
+        </div>
 
         <section class="top-bar-section">
           <ul class="right">
@@ -27,8 +27,6 @@
               <li> <%= link_to 'Sign Up', new_user_registration_path %> </li>
               <li> <%= link_to 'Sign In', new_user_session_path %> </li>
             <% end %>
-          </ul>
-          <ul class="left">
             <li><%= link_to 'Home', root_path %></li>
           </ul>
        </section>

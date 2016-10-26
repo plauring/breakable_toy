@@ -1,35 +1,40 @@
-<h1> <%= @user.first_name %> <%= @user.last_name %>'s Profile </h1>
+<div class="user-show">
+  <div id="user-bar">
+    <div class="profile">
+      <h4> <%= @user.first_name %> <%= @user.last_name %>'s Profile </h4>
+      <ul>
+        <li><%= @user.username %></li>
+        <li><%= @user.email %></li>
+        <li>Member since: <%= @user.created_at.to_time.strftime('%a %b %d %I:%M %p %Z') %></li>
+      </ul>
+      <p><%= link_to 'Edit your profile', edit_user_registration_path %></p>
+      <p><%= link_to 'Find Games and Events', root_path %></p>
+    </div>
+    <div id="favorites">
+        <h4>Favorite Teams</h4>
+      <% unless @favorites.nil? %>
+        <% @favorites.each do |fav| %>
+          <li><%= fav.name %> <%= fav.nickname %></li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
-  <h6>Your info</h6>
-<ul>
-  <li><%= @user.username %></li>
-  <li><%= @user.email %></li>
-  <li>Member since: <%= @user.created_at.to_time.strftime('%a %b %d %I:%M %p %Z') %></li>
-</ul>
+  <div id="add-favs">
+    <h4>Add Your Favorite Teams</h4>
+    <div class="conferences">
+      <% @conferences.each do |conference| %>
+        <button id="<%=conference.name %>" class="small button" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
+        <div class="<%=conference.name %>" style="display: none;">
+          <% conference.teams.each do |team| %>
+            <button class="small button secondary" type="button" name="button" onClick="addTeam()" id="<%= team.id %>" data-team="<%= team.id %>" ><%= team.full_name %></button>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 
 
-<%= link_to 'Add Favorite Teams', new_user_favorite_path(@user) %>
-<%= link_to 'Edit your profile', edit_user_registration_path %>
 
-<h1>Add your favorite teams</h1>
 
-<% @conferences.each do |conference| %>
-<button id="<%=conference.name %>" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
-<div class="<%=conference.name %>" style="display: none;">
-  <% conference.teams.each do |team| %>
-    <%= team.full_name %>
-    <button type="button" name="button" onClick="addTeam()" id="<%= team.id %>" data-team="<%= team.id %>" >Add</button>
-  <% end %>
-</div>
-
-<% end %>
-
-<h3>Your Favorites</h3>
-
-<div id="favorites">
-  <% unless @favorites.nil? %>
-    <% @favorites.each do |fav| %>
-      <li><%= fav.name %> <%= fav.nickname %></li>
-    <% end %>
-  <% end %>
 </div>
