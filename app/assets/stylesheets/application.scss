@@ -1,17 +1,174 @@
 @import "foundation_and_overrides";
 /* Add imports of custom sass/scss files here */
 
+.top-bar {
+  background-color: #00C176;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 100px;
+  width: 100%;
+
+}
+
+.name {
+  font-family: 'Impact';
+}
+
+.title-area {
+  float: left;
+  margin: 20px 100px 20px 20px;
+}
+.right > li {
+  float: right;
+  display: block;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  list-style-type: none;
+  display: block;
+  background-color: #00C176;
+  margin: 10px;
+  padding: 5px;
+  border: 2px solid white;
+}
+
+li > a {
+  color: white;
+}
+
+.left > * {
+  display: flex;
+  background-color: #00C176;
+  color: white
+}
+
+
+
 #sign-in-page {
-  background-image: url("http://images.agoramedia.com/everydayhealth/gcms/benefits-and-risks-of-sports-fandom-01-pg-full.jpg?width=623");
-  background-size: cover;
-  background-position: center, center;
-  background-repeat: no-repeat;
+  margin-top: 170px;
 }
 
 .new_user {
-  margin: 0px 100px 50px 100px;
+  margin: 130px 100px 50px 100px;
   background-color: #ffffff;
   border: 1px solid black;
   opacity: 0.6;
   filter: alpha(opacity=60);
+}
+
+.field {
+  margin: 10px 50px 0px 50px;
+}
+
+label {
+  margin-left: 0px;
+  font-weight: bold;
+}
+
+.user-show {
+  margin: 120px 50px 50px 50px;
+}
+
+#user-bar {
+  display: inline-flex;
+  background-color: #e5f6f8;
+  box-shadow: 10px 10px 15px #888888;
+  border-radius: 5px;
+  width: 100%;
+}
+
+#add-favs {
+  margin-top: 35px;
+  display: inline-block;
+  background-color: #e5f6f8;
+  box-shadow: 10px 10px 15px #888888;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  h4 {
+    text-align: center;
+  }
+}
+
+.profile {
+  margin: 30px;
+  p {
+    text-align: center;
+    border: 1px solid black;
+  }
+}
+
+#favorites {
+  list-style-type: none;
+  margin: 30px;
+}
+
+.conferences {
+  display: inline;
+}
+
+#index-page {
+  margin: 120px 10px 50px 10px;
+}
+
+#search-container {
+  display: inline-block;
+  background-color: #e5f6f8;
+  box-shadow: 10px 10px 15px #888888;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+#search {
+  width: 50%;
+  margin: 0px 0px 10px 0px;
+  float: left;
+}
+
+.games {
+  display: inline-block;
+  background-color: #e5f6f8;
+  box-shadow: 10px 10px 15px #888888;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.game {
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 33%;
+}
+
+.searched-event {
+  width: 33%;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  li {
+    list-style-type: none;
+  }
+}
+
+.event {
+  display: inline;
+}
+
+.event-form {
+  margin: 120px 10px 50px 10px;
+  box-shadow: 10px 10px 15px #888888;
+  border-radius: 5px;
+}
+
+.event-show {
+  margin: 120px 10px 50px 10px;
+  box-shadow: 10px 10px 15px #888888;
+  border-radius: 5px;
 }

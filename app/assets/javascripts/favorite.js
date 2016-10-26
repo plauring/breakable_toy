@@ -28,5 +28,4 @@ function addTeam() {
 function showEvents () {
     var id = event.currentTarget.id;
     $(`.${id}`).toggle();
-    }
   };
