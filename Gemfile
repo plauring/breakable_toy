@@ -1,6 +1,7 @@
 source 'https://rubygems.org/'
 ruby '2.3.1'
 
+
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -11,6 +12,9 @@ gem 'devise'
 gem 'httparty'
 gem 'seed_dump'
 gem 'foundation-rails'
+gem 'sidekiq'
+gem 'sinatra', github: 'sinatra/sinatra'
+gem 'sidetiq'
 
 group :development, :test do
   gem 'capybara'
