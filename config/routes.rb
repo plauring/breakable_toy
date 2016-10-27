@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => "/sidekiq"
+
   root 'events#index'
 
   devise_for :users
@@ -12,9 +15,10 @@ Rails.application.routes.draw do
     resources :memberships, only: [:index, :new, :create]
   end
 
-  resources :teams, only: [:index, :create]
+  resources :teams, only: [:index]
 
   resources :games, only: [:index, :create] do
     resources :events, only: [:new, :create, :show]
   end
+  post 'games/update_schedule' => 'games#update_schedule', as: :schedule
 end
