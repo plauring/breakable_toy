@@ -37,7 +37,6 @@ class EventsController < ApplicationController
   def create
     @game = Game.find(params[:game_id])
     @event = Event.new(event_params)
-    # binding.pry
     if @event.save
       flash[:notice] = "Event added successfully"
       redirect_to game_event_path(@game.id, @event.id)
