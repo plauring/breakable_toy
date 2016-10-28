@@ -3,21 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
-
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-
   <body>
     <div class="contain-to-grid">
       <nav class="top-bar" data-topbar role="navigation">
-        <div class="title-area">
-          <h2 class="name">Away Games</h2>
+        <div >
+          <p class="name">Away Games</p>
         </div>
-
         <section class="top-bar-section">
           <ul class="right">
             <% if user_signed_in? %>
@@ -36,5 +32,8 @@
       <%= value %>
     <% end %>
     <%= yield %>
+    <div class ='bottom-bar'>
+      <p class = 'copyright'> &copy; Pete Lauring</p>
+    </div>
   </body>
 </html>
