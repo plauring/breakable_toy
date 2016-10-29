@@ -1,28 +1,33 @@
-<div class="event-show">
-  <h1>   <%= @event.name %>   </h1>
-  <ul>
-    <li> <%= @event.description %> </li>
-    <li> <%= @event.location %> </li>
-    <li> <%= @event.address %> </li>
-    <li> <%= @event.city %>, <%= @event.state %> <%= @event.zip %> </li>
-  </ul>
+<div class="page-body">
+  <div class="content">
+    <div class="event-show profile">
+      <h1 class="title">   <%= @event.name %>   </h1><br />
+      <ul>
+        <li> <%= @event.description %> </li><br />
+        <li> <%= @event.location %> </li>
+        <li> <%= @event.full_address %> </li>
+      </ul>
 
-  <div>
-  <%= form_for [@event, @membership] do |f| %>
-    <%= f.hidden_field :event_id %>
-    <%= f.hidden_field :user_id %>
-    <%= f.submit 'Attend' %>
-  </div>
-  <% end %>
-
-  <p>
-    <%= @memberships.length %> fans are attending!
-  </p>
-  <ul>
-    <% @memberships.each do |membership| %>
-      <li>
-        <%= membership.user.username %>
-      </li>
+      <div>
+        <%= form_for [@event, @membership] do |f| %>
+        <%= f.hidden_field :event_id %>
+        <%= f.hidden_field :user_id %>
+        <%= f.submit 'Attend', class: 'event-btn' %>
+      </div>
       <% end %>
-  </ul>
+
+      <div><%=link_to 'Home', root_path, class: 'event-btn'%></div>
+
+      <h4>
+        <%= @memberships.length %> fans are attending!
+      </h4>
+      <ul id="attendees">
+        <% @memberships.each do |membership| %>
+        <li>
+          <%= membership.user.username %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
 </div>
