@@ -1,23 +1,6 @@
 class MembershipsController < ApplicationController
   before_action :authorize_user
 
-  def index
-    @memberships = Membership.all
-  end
-
-  def new
-    @membership = Membership.new
-    if !user_signed_in?
-      flash[:notice] = 'Sign In or Sign Up to join this event'
-      redirect_to root_path
-    else
-      @event = Event.find(params[:event])
-      @game = @event.game
-      @membership = Membership.new
-      @user = current_user
-    end
-  end
-
   def create
     @user = current_user
     params[:user_id] = @user.id
