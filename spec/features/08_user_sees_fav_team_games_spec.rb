@@ -14,8 +14,8 @@ feature "user sees favorite team's games on the events index page" do
 
     expect(page).to have_content(game1.format_time(game1))
     expect(page).to have_content(game1.network)
-    expect(page).to have_content(team1.full_name)
-    expect(page).to have_content(team2.full_name)
+    expect(page).to have_content(team1.name)
+    expect(page).to have_content(team2.name)
   end
 
   scenario "user vists events index page and sees only upcoming games for their favorite teams" do
@@ -29,7 +29,7 @@ feature "user sees favorite team's games on the events index page" do
 
     expect(page).to_not have_content(game1.format_time(game1))
     expect(page).to_not have_content(game1.network)
-    expect(page).to_not have_content(team1.full_name)
-    expect(page).to_not have_content(team2.full_name)
+    expect(page).to_not have_content(team1.name)
+    expect(page).to_not have_content(team2.name)
   end
 end
