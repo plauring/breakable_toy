@@ -12,11 +12,11 @@
       <% unless @searched_events.nil? %>
         <% @searched_events.each do |event| %>
         <div class="searched-event">
-          <h5><%= event.name %></h5>
+          <h5 class="title"><%= event.name %></h5>
           <ul>
-            <li><%= event.description %></li>
-            <li><%= event.location %></li>
+            <li>Where: <%= event.location %></li>
             <li><%= event.full_address %></li>
+            <li>When: <%= event.game.format_time(event.game) %></li>
           </ul>
           <div ><%= link_to 'See Details', game_event_path(@game.id, event.id)  %></div>
         </div>
@@ -26,31 +26,31 @@
     <div class="games">
       <div class="row game-event">
         <div class="small-4 columns title">
-          Your Teams Games
+          Your Team's Games
         </div>
         <div class="small-8 columns title">
-          Your Teams Events
+          Your Team's Events
         </div>
       </div>
       <%@favorite_teams.each do |team|  %>
         <% team.schedule.each do |game| %>
           <div class="row">
-            <div class="small-4 columns">
-              <p><%= game.away_team.full_name %> @ <%= game.home_team.full_name %></p>
+            <div class="small-4 columns game">
+              <p><%= game.away_team.name %> @ <%= game.home_team.name %></p>
               <p>Time: <%= game.format_time(game) %></p>
-              <p>Channel: <%= game.network %></p></br>
+              <p>Channel: <%= game.network %></p>
+              <button class="event-btn" id="<%=game.id%>" type= "button" name="button" onClick="showEvents()">See Events</button>
               <div><%= link_to 'Create new event', new_game_event_path(game.id) %></div>
-              <button id="<%=game.id%>" type= "button" name="button" onClick="showEvents()">See Events</button>
             </div>
-            <div class="<%=game.id%> small-4 columns event" style="display: none;">
-              <% game.events.each do |event| %>
-              <h6><%= event.name %></h6>
-              <ul>
-                <li><%= event.description %></li>
-                <li><%= event.location %></li>
-                <li><%= event.full_address %></li>
-              </ul>
-              <div ><%= link_to 'See Details', game_event_path(game.id, event.id)  %></div>
+            <div class="<%=game.id%> small-block-grid-3 events" style="display: none;">
+            <% game.events.each do |event| %>
+              <div class="small-4 columns event">
+                <p><%= event.name %></p>
+                <p>Where: <%= event.location %></p>
+                <p><%= event.full_address %></p>
+                <p>When: <%= event.game.format_time(game)%></p>
+                <div id="create-event-link"><%= link_to 'See Details', game_event_path(game.id, event.id)  %></div>
+              </div>
               <% end %>
             </div>
           </div>

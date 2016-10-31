@@ -5,6 +5,7 @@
  * foundation.zurb.com
  * Licensed under MIT Open Source
  */
+@import url("https://fonts.googleapis.com/css?family=Graduate");
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -5359,30 +5360,130 @@ table.hover tr:nth-of-type(even):hover {
 }
 
 /* Add imports of custom sass/scss files here */
-/* line 4, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 3, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  list-style-type: none;
+  font-family: 'Graduate', cursive;
+}
+/* line 11, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+body h1, body h2, body h3, body h4, body h5 {
+  font-family: 'Graduate', cursive;
+}
+
+/* line 16, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 19, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.wrapper {
+  margin: 5% 25% 10% 25%;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 50%;
+  position: relative;
+}
+/* line 24, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.wrapper h2 {
+  text-align: center;
+}
+
+/* line 29, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.sign-in-page {
+  min-height: 1000px;
+  padding-top: 10%;
+  background: url("http://www.post-gazette.com/image/2016/10/21/ca0,0,5472,3648/Ohio-St-Penn-St-Football-3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+/* line 38, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.btn {
+  padding: 10px;
+  background-color: #144977;
+  color: #FFFFFF;
+  font-size: 2em;
+  border: none;
+  color: white;
+  margin: 1%;
+  display: inline;
+}
+
+/* line 48, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.btn:hover {
+  background-color: #6DAEDB;
+}
+
+/* line 51, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.actions {
+  text-align: center;
+  margin: 2% auto;
+  font-size: .75em;
+}
+
+/* line 56, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.devise-links {
+  padding: 3%;
+  font-size: 1em;
+  color: #144977;
+}
+/* line 60, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.devise-links a {
+  color: #144977;
+  font-size: 2em;
+}
+
+/* line 65, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.copyright {
+  padding-top: 2%;
+  text-align: center;
+  font-size: 1em;
+}
+
+/* line 70, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+a {
+  color: #144977;
+  font-size: 1em;
+}
+
+/* line 75, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+li {
+  list-style: none;
+}
+
+/* line 78, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.remember-me {
+  font-size: 0.75em;
+  text-align: center;
+}
+
+/* line 82, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .top-bar {
-  background-color: #00C176;
+  background-color: #144977;
   color: white;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 999;
-  height: 100px;
+  height: 12%;
+  max-height: 120px;
+  min-height: 85px;
   width: 100%;
 }
 
-/* line 16, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 94, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .name {
-  font-family: 'Impact';
-}
-
-/* line 20, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
-.title-area {
+  font-family: 'Graduate', cursive;
+  font-size: 4em;
+  position: fixed;
+  height: 10%;
   float: left;
-  margin: 20px 100px 20px 20px;
 }
 
-/* line 24, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 102, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .right > li {
   float: right;
   display: block;
@@ -5391,169 +5492,225 @@ table.hover tr:nth-of-type(even):hover {
   color: white;
   list-style-type: none;
   display: block;
-  background-color: #00C176;
   margin: 10px;
   padding: 5px;
-  border: 2px solid white;
+  font-size: 1.5em;
 }
 
-/* line 38, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 114, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.right li a:hover {
+  color: #E94F37;
+}
+
+/* line 117, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 li > a {
-  color: white;
+  color: #FFFFFF;
 }
 
-/* line 42, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 120, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .left > * {
   display: flex;
-  background-color: #00C176;
   color: white;
 }
 
-/* line 50, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 124, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 #sign-in-page {
   margin-top: 170px;
 }
 
-/* line 54, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
-.new_user {
-  margin: 130px 100px 50px 100px;
-  background-color: #ffffff;
-  border: 1px solid black;
-  opacity: 0.6;
-  filter: alpha(opacity=60);
-}
-
-/* line 62, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 127, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .field {
   margin: 10px 50px 0px 50px;
 }
 
-/* line 66, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 130, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 label {
   margin-left: 0px;
   font-weight: bold;
+  font-size: 1.5em;
 }
 
-/* line 71, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 135, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .user-show {
   margin: 120px 50px 50px 50px;
 }
 
-/* line 75, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 138, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 #user-bar {
   display: inline-flex;
-  background-color: #e5f6f8;
-  box-shadow: 10px 10px 15px #888888;
+  background-color: white;
   border-radius: 5px;
   width: 100%;
+  color: #144977;
+  outline: 5px solid #1DA1AF;
 }
 
-/* line 83, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 148, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 #add-favs {
   margin-top: 35px;
   display: inline-block;
-  background-color: #e5f6f8;
-  box-shadow: 10px 10px 15px #888888;
+  background-color: #FFFFFF;
   border-radius: 5px;
   width: 100%;
   height: auto;
-}
-/* line 91, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
-#add-favs h4 {
-  text-align: center;
+  outline: 5px solid #1DA1AF;
 }
 
-/* line 96, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
-.profile {
+/* line 161, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.conferences {
+  width: 100%;
+  margin: 1% 3%;
+  display: block;
+  display: inline-block;
+}
+
+/* line 169, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+h4 {
+  color: #144977;
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Graduate', cursive;
+}
+
+/* line 175, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+g.profile {
   margin: 30px;
-}
-/* line 98, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
-.profile p {
-  text-align: center;
-  border: 1px solid black;
+  width: 50%;
+  padding: 1%;
+  display: inline-block;
 }
 
-/* line 104, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 182, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 #favorites {
   list-style-type: none;
   margin: 30px;
+  align-self: right;
+  width: 50%;
 }
 
-/* line 109, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
-.conferences {
-  display: inline;
-}
-
-/* line 113, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 189, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 #index-page {
   margin: 120px 10px 50px 10px;
 }
 
-/* line 117, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 192, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 #search-container {
   display: inline-block;
-  background-color: #e5f6f8;
-  box-shadow: 10px 10px 15px #888888;
+  background-color: #FFFFFF;
   border-radius: 5px;
   width: 100%;
   height: auto;
   padding: 10px;
   margin-bottom: 20px;
+  outline: 5px solid #1DA1AF;
+}
+/* line 202, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+#search-container h4 {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #144977;
+  text-shadow: 1px 1px;
 }
 
-/* line 127, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 209, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 #search {
   width: 50%;
   margin: 0px 0px 10px 0px;
   float: left;
 }
 
-/* line 133, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 214, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .games {
   display: inline-block;
-  background-color: #e5f6f8;
-  box-shadow: 10px 10px 15px #888888;
+  background-color: #FFFFFF;
   border-radius: 5px;
   width: 100%;
   height: auto;
   padding: 10px;
   margin-bottom: 20px;
+  outline: 5px solid #1DA1AF;
 }
 
-/* line 144, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 226, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .game {
   border: 1px solid black;
   border-radius: 5px;
   width: 33%;
 }
 
-/* line 150, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 231, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .searched-event {
   width: 33%;
   text-align: center;
   border: 1px solid black;
   border-radius: 5px;
 }
-/* line 155, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 236, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .searched-event li {
   list-style-type: none;
 }
 
-/* line 160, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 240, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .event {
   display: inline;
 }
 
-/* line 164, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 243, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .event-form {
   margin: 120px 10px 50px 10px;
-  box-shadow: 10px 10px 15px #888888;
   border-radius: 5px;
 }
 
-/* line 170, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+/* line 248, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
 .event-show {
   margin: 120px 10px 50px 10px;
-  box-shadow: 10px 10px 15px #888888;
   border-radius: 5px;
+}
+
+/* line 253, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.bottom-bar {
+  position: fixed;
+  bottom: 0px;
+  height: 5%;
+  width: 100%;
+  background-color: #6DAEDB;
+}
+
+/* line 260, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.page-body {
+  height: 100%;
+  width: 100%;
+  background-color: #DEE5E5;
+  margin: 0;
+  position: fixed;
+  padding: 12% 0 2.5% 0;
+  overflow: auto;
+}
+
+/* line 269, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.content {
+  margin: auto;
+  max-width: 85%;
+  font-size: 1.5em;
+  position: relative;
+}
+
+/* line 276, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.row {
+  margin: 1% 5%;
+}
+
+/* line 280, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.title {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #144977;
+  text-shadow: 1px 1px;
+}
+
+/* line 288, /Users/plauring/challenges/breakable_toy/app/assets/stylesheets/application.scss */
+.game-event {
+  margin: 1% 3%;
+  width: 100%;
 }

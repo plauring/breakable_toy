@@ -1,33 +1,33 @@
 <div class="page-body">
   <div class = "content">
-    <div id="user-bar">
-      <div class="profile">
+    <div id="user-bar" class="row">
+      <div class="profile small-6 columns">
         <h4> <%= @user.first_name %> <%= @user.last_name %>'s Profile </h4>
         <ul>
           <li><strong>Username:</strong> <%= @user.username %></li>
           <li><strong>Email:</strong> <%= @user.email %></li>
           <li><strong>Member since:</strong> <%= @user.created_at.to_time.strftime('%a %b %d %I:%M %p %Z') %></li>
         </ul>
-        <div ><%= link_to 'Edit your profile', edit_user_registration_path, class: 'button'%></div>
-        <div><%= link_to 'Find Games and Events', root_path, class: 'button'%></div>
+        <div ><%= link_to 'Edit your profile', edit_user_registration_path, class: 'prof-btn '%></div>
+        <div><%= link_to 'Find Games and Events', root_path, class: 'prof-btn'%></div>
       </div>
-      <div id="favorites">
-          <h4>Favorite Teams</h4>
+      <div id="favorites" class="small-6 columns centered">
+        <h4>Favorite Teams</h4>
         <% unless @favorites.nil? %>
-          <% @favorites.each do |fav| %>
-            <li><%= fav.name %> <%= fav.nickname %></li>
-          <% end %>
+        <% @favorites.each do |fav| %>
+        <li><%= fav.name %> <%= fav.nickname %></li>
+        <% end %>
         <% end %>
       </div>
     </div>
-    <div id="add-favs">
+    <div id="add-favs" class="row">
       <h4>Add Your Favorite Teams</h4>
       <div class="conferences">
         <% @conferences.each do |conference| %>
-          <button id="<%=conference.name %>" class="small button" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
+          <button id="<%=conference.name %>" class="button" type= "button" name="button" onClick="showTeams()"><%= conference.name %></button>
           <div class="<%=conference.name %>" style="display: none;">
             <% conference.teams.each do |team| %>
-              <button class="small button secondary" type="button" name="button" onClick="addTeam()" id="<%= team.id %>" data-team="<%= team.id %>" ><%= team.full_name %></button>
+              <button class="button secondary" type="button" name="button" onClick="addTeam()" id="<%= team.id %>" data-team="<%= team.id %>" ><%= team.full_name %></button>
             <% end %>
           </div>
         <% end %>
