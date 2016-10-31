@@ -14,6 +14,21 @@ feature 'Authorized users can register for an event' do
     expect(page).to have_content(user1.username)
   end
 
+  scenario 'user tries to sign up for same event twice and sees error' do
+    user1 = FactoryGirl.create(:user)
+    conference1 = FactoryGirl.create(:conference)
+    team1 = Team.create(name: 'Test', nickname: 'Turtles', conference: conference1, league: 'NCAAF', key: 'TTU')
+    team2 = Team.create(name: 'Test2', nickname: 'Turtles2', conference: conference1, league: 'NCAAF', key: 'TTT')
+    game1 = Game.create(week: 10, scheduled: 'noon', network: 'pbs', home_team_id: team1.id, away_team_id: team2.id)
+    login_as(user1)
+    event1 = FactoryGirl.create(:event, game: game1)
+    visit game_event_path(game1.id, event1.id)
+    click_button 'Attend'
+    expect(page).to have_content(user1.username)
+    click_button 'Attend'
+    expect(page).to have_content('You are already signed up for this event')
+  end
+
   scenario 'multiple users register for the same event' do
     user1 = FactoryGirl.create(:user)
     user2 = FactoryGirl.create(:user)
